@@ -6,23 +6,34 @@ function input_number(pressed_button) {
     display.value += pressed_button.textContent;
 }
 
+let calcOperator = null;
+let calcFirstNumber = null;
+let calcSecondNumber = null;
+
 // Clear the display
 function clearAll(_) {
     display.value = "";
+    calcOperator = null;
+    calcFirstNumber = null;
+    calcSecondNumber = null;    
+}
+function clearDisplay(_) {
+    display.value = "";
 }
 
-function operate(operator, num1, num2){
-    num1 = parseFloat(num1);
-    num2 = parseFloat(num2);
+//calculate
+function operate(operator, number1, number2){
+    const num1 = parseFloat(number1);
+    const num2 = parseFloat(number2);
     switch (operator){
         case '+': 
-        return num1 + num2;
+            return num1 + num2;
         case '-': 
-        return num1 - num2;
+            return num1 - num2;
         case '*': 
-        return num1 * num2;
+            return num1 * num2;
         case '/': 
-        return num1 / num2;
+            return num1 / num2;
     }
 }
 
@@ -40,12 +51,28 @@ function calculate() {
     });
 
     //  clear
-    const clear = document.querySelector('#clear');
-    clear.addEventListener('click', clearAll);
+    const AC = document.querySelector('#clear');
+    AC.addEventListener('click', clearAll);
 
     //  equal
+    const operators = document.querySelectorAll('.operator');
+    operators.forEach((operatorButton) => operatorButton.addEventListener('click', () => {
+        if (calcFirstNumber === null) {
+            calcFirstNumber = display.value;
+            clearDisplay();
+        } else {
+            calcSecondNumber = display.value;
+        }
+        calcOperator = operatorButton.textContent;
+    }));
+
     const eq = document.querySelector('#equal');
-    eq.addEventListener('click', (e) => calculate());
+    eq.addEventListener('click', () => {
+        if (calcOperator && calcFirstNumber) {
+            calcSecondNumber = display.value;
+            display.value = operate(calcOperator, calcFirstNumber, calcSecondNumber);
+        }});
+
 
 
 
