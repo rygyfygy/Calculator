@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+.calculator {
+    padding: 3em;
+    margin: 2em;
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100em;
+    width: 20em;
+    justify-content: baseline;
+    align-items: center;
+    gap: 1.5em;
+}
+
+.buttons {
+    padding:2%;
+    display: flex;
+    gap: 1em;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    flex-basis: 18em;
+}
+
+.buttons > * {
+    width: 20%;
+    height: 20%;
+    font-size: x-large;
+    font-family: Orbitron, sans-serif;
+    align-items: center;
+    justify-items: center;
+}
+
+#display {
+    font-family: Orbitron, sans-serif;
+    font-size: xx-large;
+    align-self: center;
+    justify-self: center;
+    padding-top: 1em;
+    padding: 0.5em;
+    width: 85%;
+
+}
+
+
+#clear {
+    width: 39%;
+    margin-left: 60%;
+    flex-wrap: nowrap;
+}
+
+
