@@ -11,15 +11,20 @@ let calcFirstNumber = null;
 let calcSecondNumber = null;
 
 // Clear the display
-function clearAll(_) {
+function clearDisplay() {
     display.value = "";
+}
+function clearCache() {
     calcOperator = null;
     calcFirstNumber = null;
-    calcSecondNumber = null;    
+    calcSecondNumber = null;
 }
-function clearDisplay(_) {
-    display.value = "";
+
+function clearAll() {
+    clearCache();
+    clearDisplay();
 }
+
 
 //calculate
 function operate(operator, number1, number2){
@@ -53,6 +58,7 @@ function calculate() {
     //  clear
     const AC = document.querySelector('#clear');
     AC.addEventListener('click', clearAll);
+    
 
     //  equal
     const operators = document.querySelectorAll('.operator');
@@ -60,9 +66,7 @@ function calculate() {
         if (calcFirstNumber === null) {
             calcFirstNumber = display.value;
             clearDisplay();
-        } else {
-            calcSecondNumber = display.value;
-        }
+        } 
         calcOperator = operatorButton.textContent;
     }));
 
@@ -71,6 +75,8 @@ function calculate() {
         if (calcOperator && calcFirstNumber) {
             calcSecondNumber = display.value;
             display.value = operate(calcOperator, calcFirstNumber, calcSecondNumber);
+            clearCache();
+            calcFirstNumber = parseint(display.value);
         }});
 
 
