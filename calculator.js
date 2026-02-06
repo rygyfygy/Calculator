@@ -1,4 +1,3 @@
-
 const display = document.querySelector('#display');
 
 let calcOperator = null;
@@ -21,10 +20,13 @@ function clearAll() {
     clearDisplay();
 }
 
-// Append numbers to display ([0] = 'AC')
+// Append numbers to display
+let shouldClearDisplay = false;
+
 function enter(pressed_button) {
-    if (calcFirstNumber !== null) {
-        clearDisplay()
+    if (shouldClearDisplay) {
+        clearDisplay();
+        shouldClearDisplay = false;
     }
     display.value += pressed_button.textContent;
 }
@@ -56,7 +58,7 @@ buttons.forEach(button => {
 // dot
 const dot = document.querySelector('#dot');
 dot.addEventListener('click', (event) => {
-    if (!display.value.includes('.')) { enter(event.target) };
+    if (!display.value.includes('.')) { enter(event.target); }
 });
 
 
@@ -71,6 +73,7 @@ operators.forEach((operatorButton) => operatorButton.addEventListener('click', (
         calcFirstNumber = display.value;
     }
     calcOperator = operatorButton.textContent;
+    shouldClearDisplay = true;
 }));
 
 const eq = document.querySelector('#equal');
