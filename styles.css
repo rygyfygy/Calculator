@@ -2,14 +2,18 @@
 
 .calculator {
     padding: 3em;
+    background-color: darkgray;
+    justify-self: center;
     margin: 2em;
     display: flex;
     flex-flow: column nowrap;
-    height: 100em;
-    width: 20em;
+    height: 29em;
+    width: 19em;
     justify-content: baseline;
     align-items: center;
     gap: 1.5em;
+    border: 5px solid gray;
+    border-radius: 5%;
 }
 
 .buttons {
@@ -29,6 +33,7 @@
     font-family: Orbitron, sans-serif;
     align-items: center;
     justify-items: center;
+    border: 3px solid rgb(166, 166, 166);
 }
 
 #display {

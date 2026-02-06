@@ -79,7 +79,7 @@ eq.addEventListener('click', () => {
         calcSecondNumber = display.value;
         display.value = operate(calcOperator, calcFirstNumber, calcSecondNumber);
         clearCache();
-        calcFirstNumber = parseInt(display.value);
+        calcFirstNumber = parseFloat(display.value);
     }
 });
 
