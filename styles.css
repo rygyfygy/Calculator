@@ -34,9 +34,14 @@
     align-items: center;
     justify-items: center;
     border: 3px solid rgb(166, 166, 166);
+    box-shadow: 0px 0px 1px 2px #777777;
+
 }
 
+
+
 #display {
+    background-color: rgb(214, 233, 182);
     font-family: Orbitron, sans-serif;
     font-size: xx-large;
     align-self: center;
@@ -44,14 +49,18 @@
     padding-top: 1em;
     padding: 0.5em;
     width: 85%;
-
-}
+    box-shadow: 0px 0px 1px 3px #777777;
+    }
 
 
 #clear {
     width: 39%;
     margin-left: 60%;
     flex-wrap: nowrap;
-}
+    background-color: rgb(255, 185, 106);
+    font-weight: bold;
+    color: rgb(235, 235, 235);
+    -webkit-text-stroke: 1px rgb(154, 116, 60);    
+    }
 
 
