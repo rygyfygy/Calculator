@@ -44,6 +44,7 @@ function operate(operator, number1, number2) {
         case '*':
             return num1 * num2;
         case '/':
+            if (!num2) return 'ERROR'; 
             return num1 / num2;
     }
 }
